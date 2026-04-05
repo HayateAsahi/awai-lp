@@ -1,0 +1,25 @@
+{
+  "id": "ref-tax-accounting",
+  "name": "Ref 2: 税理士・経理代行風",
+  "category": "参考LP再現（Funai Soken Inspiration）",
+  "theme": {
+    "fontFamily": "font-serif",
+    "bgClass": "bg-[#f4f6f9]",
+    "textClass": "text-[#333333]",
+    "primaryBg": "bg-[#004098]",
+    "primaryText": "text-white",
+    "secondaryBg": "bg-[#e9ecef]",
+    "secondaryText": "text-[#333333]",
+    "accentBg": "bg-[#e60012]",
+    "accentText": "text-white",
+    "surfaceBg": "bg-white",
+    "surfaceText": "text-[#333333]",
+    "textureClass": "bg-grid-pattern",
+    "shapeRadius": "rounded-sm",
+    "buttonClass": "rounded-sm bg-[#e60012] text-white font-bold shadow-md hover:bg-[#cc0010] transition-colors",
+    "cardClass": "bg-white rounded-sm shadow-sm border border-[#dee2e6]",
+    "heroLayout": "center",
+    "sectionSpacing": "py-16",
+    "animationType": "fade"
+  }
+}

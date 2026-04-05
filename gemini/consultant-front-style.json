@@ -1,0 +1,25 @@
+{
+  "id": "consultant-front",
+  "name": "コンサルタント全面",
+  "category": "人の顔が見える・並走感",
+  "theme": {
+    "fontFamily": "font-sans",
+    "bgClass": "bg-slate-50",
+    "textClass": "text-slate-800",
+    "primaryBg": "bg-sky-800",
+    "primaryText": "text-white",
+    "secondaryBg": "bg-sky-100",
+    "secondaryText": "text-sky-900",
+    "accentBg": "bg-amber-500",
+    "accentText": "text-white",
+    "surfaceBg": "bg-white",
+    "surfaceText": "text-slate-800",
+    "textureClass": "bg-diagonal-stripes",
+    "shapeRadius": "rounded-sm",
+    "buttonClass": "rounded-sm bg-amber-500 text-white font-bold shadow-md hover:bg-amber-600 transition-colors",
+    "cardClass": "bg-white rounded-sm shadow-md border-t-4 border-sky-800",
+    "heroLayout": "split",
+    "sectionSpacing": "py-24",
+    "animationType": "slide"
+  }
+}

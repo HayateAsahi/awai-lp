@@ -1,0 +1,54 @@
+{
+  "theme": "イラスト・ポップ",
+  "concept": "親しみやすさと伴走感を演出する、遊び心のあるポップなデザイン",
+  "colors": {
+    "background": {
+      "base": "#fdfbf7",
+      "pattern": "radial-gradient(#cbd5e1 2px, transparent 2px)",
+      "patternSize": "24px 24px"
+    },
+    "primary": {
+      "hero": "#bae6fd",
+      "cta": "#facc15",
+      "icon": "#0ea5e9"
+    },
+    "accent": {
+      "border": "#000000",
+      "shadow": "rgba(0,0,0,1)"
+    },
+    "text": {
+      "main": "#000000"
+    }
+  },
+  "typography": {
+    "fontFamily": "font-black (極太サンセリフ系)",
+    "heading": {
+      "fontSize": "text-4xl",
+      "fontWeight": "font-black",
+      "rotation": "-2deg",
+      "decoration": "border-4 border-black shadow"
+    }
+  },
+  "spacing": {
+    "heroPadding": "py-24",
+    "sectionPadding": "py-20 px-4",
+    "maxWidth": "max-w-5xl"
+  },
+  "elements": {
+    "card": {
+      "borderRadius": "2xl (1rem)",
+      "borderWidth": "4px",
+      "shadow": "4px 4px 0px 0px rgba(0,0,0,1) (ハードシャドウ)"
+    },
+    "cta": {
+      "borderRadius": "2xl (1rem)",
+      "borderWidth": "4px",
+      "shadow": "6px 6px 0px 0px rgba(0,0,0,1)",
+      "animation": "bounce"
+    },
+    "hero": {
+      "borderBottom": "8px",
+      "borderRadius": "rounded-b-[2rem]"
+    }
+  }
+}

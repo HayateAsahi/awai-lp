@@ -1,0 +1,25 @@
+{
+  "id": "comic-story",
+  "name": "マンガ・ストーリー",
+  "category": "親しみやすさ・ハードル払拭",
+  "theme": {
+    "fontFamily": "font-rounded",
+    "bgClass": "bg-yellow-50",
+    "textClass": "text-gray-900",
+    "primaryBg": "bg-yellow-400",
+    "primaryText": "text-gray-900",
+    "secondaryBg": "bg-white",
+    "secondaryText": "text-gray-900",
+    "accentBg": "bg-red-500",
+    "accentText": "text-white",
+    "surfaceBg": "bg-white",
+    "surfaceText": "text-gray-900",
+    "textureClass": "bg-dot-pattern",
+    "shapeRadius": "rounded-xl",
+    "buttonClass": "rounded-full border-4 border-gray-900 bg-red-500 text-white font-black shadow-[4px_4px_0px_0px_rgba(17,24,39,1)] hover:translate-y-1 hover:shadow-[0px_0px_0px_0px_rgba(17,24,39,1)] transition-all",
+    "cardClass": "border-4 border-gray-900 bg-white rounded-xl shadow-[8px_8px_0px_0px_rgba(17,24,39,1)]",
+    "heroLayout": "center",
+    "sectionSpacing": "py-16",
+    "animationType": "pop"
+  }
+}
