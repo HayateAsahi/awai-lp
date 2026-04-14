@@ -41,27 +41,97 @@ document.addEventListener('DOMContentLoaded', () => {
         headerResizeObserver.observe(siteHeader);
     }
 
-    // Scroll reveal
-    const revealSections = document.querySelectorAll('.reveal-section');
+    // Keep submit disabled until the full contact form is valid.
+    const contactForm = document.querySelector('#contact-form');
+    const privacyConsent = document.querySelector('#privacy-consent');
+    const contactSubmit = document.querySelector('#contact-submit');
+    const contactFeedback = document.querySelector('#contact-feedback');
+    const contactSubmitDefaultLabel = contactSubmit ? contactSubmit.textContent : '';
 
-    if (!revealSections.length) {
-        return;
-    }
+    if (contactForm && privacyConsent && contactSubmit) {
+        let isSubmitting = false;
 
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach((entry) => {
-            if (!entry.isIntersecting) {
+        const syncSubmitState = () => {
+            contactSubmit.disabled = isSubmitting || !contactForm.checkValidity();
+        };
+
+        const setFeedback = (message, type = '') => {
+            if (!contactFeedback) {
                 return;
             }
 
-            entry.target.classList.add('reveal-section--visible');
-            observer.unobserve(entry.target);
-        });
-    }, {
-        threshold: 0.1
-    });
+            contactFeedback.textContent = message;
+            contactFeedback.className = 'contact-form__feedback';
 
-    revealSections.forEach((section) => {
-        observer.observe(section);
-    });
+            if (type) {
+                contactFeedback.classList.add(`contact-form__feedback--${type}`);
+            }
+        };
+
+        syncSubmitState();
+
+        contactForm.addEventListener('input', syncSubmitState);
+        contactForm.addEventListener('change', syncSubmitState);
+        contactForm.addEventListener('submit', async (event) => {
+            event.preventDefault();
+
+            if (!contactForm.checkValidity()) {
+                contactForm.reportValidity();
+                syncSubmitState();
+                return;
+            }
+
+            const formData = new FormData(contactForm);
+            formData.delete('privacy_consent');
+
+            isSubmitting = true;
+            setFeedback('');
+            contactSubmit.textContent = '送信中...';
+            syncSubmitState();
+
+            try {
+                const response = await fetch('/api/contact', {
+                    method: 'POST',
+                    body: formData
+                });
+
+                const result = await response.json();
+
+                if (!response.ok || !result.data?.sent) {
+                    throw new Error(result.error?.message || 'お問い合わせの送信に失敗しました。時間をおいて再度お試しください。');
+                }
+
+                setFeedback(result.data.message || 'お問い合わせを受け付けました。', 'success');
+                contactForm.reset();
+            } catch (error) {
+                setFeedback(error.message || 'お問い合わせの送信に失敗しました。時間をおいて再度お試しください。', 'error');
+            } finally {
+                isSubmitting = false;
+                contactSubmit.textContent = contactSubmitDefaultLabel;
+                syncSubmitState();
+            }
+        });
+    }
+
+    // Scroll reveal
+    const revealSections = document.querySelectorAll('.reveal-section');
+
+    if (revealSections.length) {
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (!entry.isIntersecting) {
+                    return;
+                }
+
+                entry.target.classList.add('reveal-section--visible');
+                observer.unobserve(entry.target);
+            });
+        }, {
+            threshold: 0.1
+        });
+
+        revealSections.forEach((section) => {
+            observer.observe(section);
+        });
+    }
 });
